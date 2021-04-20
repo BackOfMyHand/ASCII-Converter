@@ -10,6 +10,8 @@ namespace ASCII_Converter
 {
     class Program
     {
+        private const double HORISONTAL_OFFSET = 1.5;
+
         [STAThread]
         static void Main(string[] args)
         {
@@ -42,7 +44,7 @@ namespace ASCII_Converter
         private static Bitmap Resize(Bitmap bitmap)
         {
             var maxWidth = 350;
-            var newHeight = bitmap.Height / 1.5 * maxWidth / bitmap.Width;
+            var newHeight = bitmap.Height / HORISONTAL_OFFSET * maxWidth / bitmap.Width;
             if (bitmap.Width > maxWidth || bitmap.Height > newHeight)
                 bitmap = new Bitmap(bitmap, new Size(maxWidth, (int)newHeight));
             return bitmap;
